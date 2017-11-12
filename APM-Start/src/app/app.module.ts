@@ -1,21 +1,23 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from "@angular/forms";
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
-import {ProductListComponent} from "./products/product-list.component";
-import {ConvertToSpacesPipe} from "./shared/convert-to-spaces.pipe";
-import {StarComponent} from "./shared/star.component";
+import {HttpClientModule} from "@angular/common/http";
+import {WelcomeComponent} from "./home/welcome.component";
+import {ProductModule} from './products/product.module';
+import {BrowserModule} from "@angular/platform-browser";
+import { AppRoutingModuleModule } from './app-routing-module.module';
+
 
 @NgModule({
+  imports: [
+    BrowserModule,//typical, every browser app should import, ngIf ...
+    HttpClientModule,
+    ProductModule,
+    AppRoutingModuleModule
+  ],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacesPipe,
-    StarComponent
+    WelcomeComponent
   ],
-  imports: [BrowserModule, FormsModule],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
